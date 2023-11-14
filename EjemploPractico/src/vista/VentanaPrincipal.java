@@ -1,0 +1,139 @@
+package vista;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+import controlador.Coordinador;
+
+import java.awt.Font;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class VentanaPrincipal implements ActionListener{
+
+	public JFrame frame;
+	private JTextField txtNumeroUno;
+	private JTextField txtNumeroDos;
+	private JLabel lblResultado;
+	private JButton btnSuma;
+	private JButton btnResta;
+	private JButton btnLimpiar;
+	private Coordinador coordinador;
+
+	public VentanaPrincipal() {
+		initialize();
+	}
+
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(245, 222, 179));
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNumeroUno = new JLabel("Numero Uno:");
+		lblNumeroUno.setBounds(30, 76, 82, 21);
+		frame.getContentPane().add(lblNumeroUno);
+		
+		JLabel lblTitulo = new JLabel("Calculos Basicos");
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 25));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setBounds(139, 27, 154, 21);
+		frame.getContentPane().add(lblTitulo);
+		
+		JLabel lblNumeroDos = new JLabel("Numero Dos:");
+		lblNumeroDos.setBounds(220, 76, 82, 21);
+		frame.getContentPane().add(lblNumeroDos);
+		
+		txtNumeroUno = new JTextField();
+		txtNumeroUno.setBounds(115, 76, 86, 20);
+		frame.getContentPane().add(txtNumeroUno);
+		txtNumeroUno.setColumns(10);
+		
+		txtNumeroDos = new JTextField();
+		txtNumeroDos.setColumns(10);
+		txtNumeroDos.setBounds(305, 76, 86, 20);
+		frame.getContentPane().add(txtNumeroDos);
+		
+		lblResultado = new JLabel("Resultado:");
+		lblResultado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResultado.setBounds(30, 108, 361, 37);
+		frame.getContentPane().add(lblResultado);
+		
+		btnSuma = new JButton("+");
+		btnSuma.setBounds(140, 156, 71, 33);
+		btnSuma.addActionListener(this);
+		frame.getContentPane().add(btnSuma);
+		
+		btnResta = new JButton("-");
+		btnResta.setBounds(230, 156, 71, 33);
+		btnResta.addActionListener(this);
+		frame.getContentPane().add(btnResta);
+		
+		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBounds(173, 200, 98, 33);
+		btnLimpiar.addActionListener(this);
+		frame.getContentPane().add(btnLimpiar);
+		
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnSuma) {
+			realizarSuma();
+		}else if (e.getSource() == btnResta) {
+			coordinador.restar(txtNumeroUno.getText(), txtNumeroDos.getText());
+		}else if (e.getSource() == btnLimpiar) {
+			realizarLimpieza();
+		}
+	}
+
+	private void realizarLimpieza() {
+		lblResultado.setText("Resultado: ");
+		lblResultado.setForeground(Color.black);
+		txtNumeroDos.setText("");
+		txtNumeroUno.setText("");
+		
+		coordinador.mostrarVentanaSecundaria();
+		
+	}
+
+	private void realizarSuma() {
+		String resultado= coordinador.sumar(txtNumeroUno.getText(), txtNumeroDos.getText());
+		
+		if (resultado.equals("Error")) {
+			lblResultado.setText("Verique que los datos sean numericos");
+			lblResultado.setForeground(Color.red);
+		} else {
+			lblResultado.setText("Resultado: "+resultado);
+			lblResultado.setForeground(Color.black);
+		}
+		
+	}
+
+	public void setCoordinador(Coordinador coordinador) {
+		this.coordinador = coordinador;
+	}
+
+	public void asignarResta(String resta) {
+		if (resta.equals("Error")) {
+			lblResultado.setText("Verique que los datos sean numericos");
+			lblResultado.setForeground(Color.red);
+		} else {
+			lblResultado.setText("Resultado: "+resta);
+			lblResultado.setForeground(Color.black);
+		}
+		
+	}
+
+	
+}

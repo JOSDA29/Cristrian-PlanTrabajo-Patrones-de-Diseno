@@ -1,0 +1,68 @@
+package controlador;
+
+import modelo.Logica;
+import vista.VentanaPrincipal;
+import vista.VentanaSecundaria;
+
+public class Coordinador {
+
+	private VentanaPrincipal ventanaPrincipal;
+	private VentanaSecundaria ventanaSecundaria;
+	private Logica logica;
+	
+
+	public Logica getLogica() {
+		return logica;
+	}
+
+	public void setLogica(Logica logica) {
+		this.logica = logica;
+	}
+
+	public VentanaPrincipal getVentanaPrincipal() {
+		return ventanaPrincipal;
+	}
+
+	public void setVentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
+		this.ventanaPrincipal = ventanaPrincipal;
+	}
+	
+	public VentanaSecundaria getVentanaSecundaria() {
+		return ventanaSecundaria;
+	}
+
+	public void setVentanaSecundaria(VentanaSecundaria ventanaSecundaria) {
+		this.ventanaSecundaria = ventanaSecundaria;
+	}
+	
+	public void mostrarVentanaSecundaria() {
+		ventanaSecundaria.frame.setVisible(true);
+		
+	}
+	
+	public void cerrarVentanaSecundaria() {
+		ventanaSecundaria.frame.dispose();	
+	} 
+
+	public String sumar(String num1, String num2) {
+		return logica.sumar(num1,num2);
+	}
+
+	public String restar(String num1, String num2) {
+		return logica.restar(num1,num2);
+	}
+
+	public void asignarResta(String resta) {
+		ventanaPrincipal.asignarResta(resta);
+
+	}
+
+	
+
+	
+
+	
+
+
+
+}

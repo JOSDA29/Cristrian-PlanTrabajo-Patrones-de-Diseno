@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Users\josep\OneDrive\Desktop\Josda\Sena\Cristian David Henao Hoyos\Fourth Trimester\Patrones de diseño\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1843836871.index
+2503372653.index
+876174337.index
+2041664329.index

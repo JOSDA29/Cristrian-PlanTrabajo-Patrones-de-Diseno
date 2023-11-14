@@ -1,0 +1,33 @@
+package controlador;
+
+import modelo.Logica;
+import vista.VentanaPrincipal;
+
+public class Coordinador {
+
+	private VentanaPrincipal ventanaPrincipal;
+	private Logica logica;
+	
+
+	public Logica getLogica() {
+		return logica;
+	}
+
+	public void setLogica(Logica logica) {
+		this.logica = logica;
+	}
+
+	public VentanaPrincipal getVentanaPrincipal() {
+		return ventanaPrincipal;
+	}
+
+	public void setVentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
+		this.ventanaPrincipal = ventanaPrincipal;
+	}
+
+	public String sumar(String num1, String num2) {
+		return logica.sumar(num1,num2);
+	}
+
+
+}

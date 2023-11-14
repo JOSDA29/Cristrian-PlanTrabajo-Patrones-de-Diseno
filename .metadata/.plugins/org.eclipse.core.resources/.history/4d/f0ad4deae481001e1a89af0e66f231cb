@@ -1,0 +1,86 @@
+package vista;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Window;
+
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.DropMode;
+import javax.swing.JTextArea;
+import javax.swing.JPanel;
+
+public class VentanaPrincipal {
+
+	public JFrame frame;
+	private JButton btnPanelUno;
+	private JButton btnPanelDos;
+	private JTextArea txtAreaContenido;
+	private JPanel panelDos;
+	private JPanel panelUno;
+
+	public VentanaPrincipal() {
+		initialize();
+	}
+
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(245, 222, 179));
+		frame.getContentPane().setLayout(null);
+		frame.setBounds(100, 100, 555, 333);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JLabel lblTitulo = new JLabel("EJEMPLO JPANEL");
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 25));
+		lblTitulo.setBounds(0, 0, 539, 57);
+		frame.getContentPane().add(lblTitulo);
+		
+		btnPanelUno = new JButton("Panel Uno");
+		btnPanelUno.setBounds(160, 50, 102, 30);
+		frame.getContentPane().add(btnPanelUno);
+		
+		//Inicializa los componentes de los paneles
+		cargarComponentesPanelUno(); 
+		cargarComponentesPanelDos();
+		
+		btnPanelDos = new JButton("Panel Dos");
+		btnPanelDos.setBounds(280, 50, 102, 30);
+		frame.getContentPane().add(btnPanelDos);
+		
+		panelUno = new JPanel();
+		panelUno.setBackground(new Color(0, 191, 255));
+		panelUno.setBounds(10, 91, 519, 181);
+		frame.getContentPane().add(panelUno);
+		
+		panelDos = new JPanel();
+		panelDos.setBackground(new Color(255, 165, 0));
+		panelDos.setBounds(10, 91, 519, 181);
+		frame.getContentPane().add(panelDos);
+	
+	}
+
+	private void cargarComponentesPanelDos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void cargarComponentesPanelUno() {
+		txtAreaContenido = new JTextArea();
+		txtAreaContenido.setTabSize(10);
+		txtAreaContenido.setRows(10);
+		txtAreaContenido.setDropMode(DropMode.INSERT);
+		txtAreaContenido.setText("Heartstopper follows two teenage boys\n"
+											+"Nick and Charlie as they meet at a British grammar school,\n"
+											+"quickly become friends and fall in love.\n"
+											+ "Each volume navigates the ups and downs of first love,\n"
+											+ "friendships, coming out and mental health,\n"
+											+ "beautifully framed by a warm cast of supporting characters.");
+		
+		txtAreaContenido.setBounds(30, 111, 477, 139);
+		frame.getContentPane().add(txtAreaContenido);
+		
+	}
+}

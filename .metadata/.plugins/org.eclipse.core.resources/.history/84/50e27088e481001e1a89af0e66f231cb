@@ -1,0 +1,57 @@
+package vista;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.DropMode;
+import javax.swing.JTextArea;
+
+public class VentanaPrincipal {
+
+	public JFrame frame;
+
+	public VentanaPrincipal() {
+		initialize();
+	}
+
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(245, 222, 179));
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("EJEMPLO JPANEL");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 25));
+		lblNewLabel.setBounds(0, 0, 434, 57);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Panel Uno");
+		btnNewButton.setBounds(102, 60, 102, 30);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnPanelDos = new JButton("Panel Dos");
+		btnPanelDos.setBounds(220, 60, 102, 30);
+		frame.getContentPane().add(btnPanelDos);
+		
+		JTextArea txtrHeartstopperFollowsTwo = new JTextArea();
+		txtrHeartstopperFollowsTwo.setTabSize(10);
+		txtrHeartstopperFollowsTwo.setRows(10);
+		txtrHeartstopperFollowsTwo.setDropMode(DropMode.INSERT);
+		txtrHeartstopperFollowsTwo.setText("Heartstopper follows two teenage boys\n"
+											+"Nick and Charlie as they meet at a British grammar school,\n"
+											+"quickly become friends and fall in love.\n"
+											+ "Each volume navigates the ups and downs of first love,\n"
+											+ "friendships, coming out and mental health,\n"
+											+ "beautifully framed by a warm cast of supporting characters.");
+		
+		txtrHeartstopperFollowsTwo.setBounds(10, 111, 453, 139);
+		frame.getContentPane().add(txtrHeartstopperFollowsTwo);
+		frame.setBounds(100, 100, 485, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

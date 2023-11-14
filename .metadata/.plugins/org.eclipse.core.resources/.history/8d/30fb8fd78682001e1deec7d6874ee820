@@ -1,0 +1,48 @@
+package modelo;
+
+import controlador.Coordinador;
+
+public class Logica {
+
+	private Coordinador coordinador;
+	private String retorno = null;
+	private int proceso = 0; 
+
+
+	public String sumar(String num1, String num2) {
+		try {
+			proceso = Integer.parseInt(num1)+Integer.parseInt(num2);
+			retorno = proceso+"";
+		} catch (Exception e) {
+			retorno = "Error";
+		}
+		return retorno;
+	}
+
+
+	public String restar(String num1, String num2) {
+		try {
+			proceso = Integer.parseInt(num1)-Integer.parseInt(num2);
+			coordinador.asignarResta(proceso+"");
+		} catch (Exception e) {
+			coordinador.asignarResta("Error");
+		}
+		return retorno;
+	}
+
+	public Coordinador getCoordinador() {
+		return coordinador;
+	}
+
+
+
+	public void setCoordinador(Coordinador coordinador) {
+		this.coordinador = coordinador;
+	}
+
+
+
+	
+	
+
+}

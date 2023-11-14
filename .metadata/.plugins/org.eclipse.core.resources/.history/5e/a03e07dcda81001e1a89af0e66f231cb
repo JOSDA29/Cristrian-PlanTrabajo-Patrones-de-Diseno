@@ -1,0 +1,31 @@
+package controlador;
+
+import modelo.Logica;
+import vista.VentanaPrincipal;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		//Declaracion de las clases
+		VentanaPrincipal ventanaPrincipal;
+		Logica logica;
+		Coordinador coordinador;
+		
+		//Instanciamiento de las clases(Craeciones de los objetos de las clases)
+		ventanaPrincipal = new VentanaPrincipal();
+		logica = new Logica();
+		coordinador = new Coordinador();
+		
+		//Establecimiento de las relaciones entre clases
+		ventanaPrincipal.setCoordinador(coordinador);
+		logica.setCoordinador(coordinador);
+		
+		//Enviar instancia de cada clase al coordinador
+		coordinador.setVentanaPrincipal(ventanaPrincipal);
+		coordinador.setLogica(logica);
+		
+		ventanaPrincipal.frame.setVisible(true);
+		
+	}
+
+}

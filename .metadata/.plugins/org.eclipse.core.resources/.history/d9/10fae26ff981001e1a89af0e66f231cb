@@ -1,0 +1,10 @@
+package modelo;
+
+public class Logica {
+
+	public int sumar(String num1, String num2) {
+		int n1= Integer.parseInt(num1), n2= Integer.parseInt(num2);
+		int suma= n1+n2;
+		return suma;
+	}
+}

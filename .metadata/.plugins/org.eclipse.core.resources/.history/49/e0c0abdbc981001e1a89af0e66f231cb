@@ -1,0 +1,30 @@
+package modelo;
+
+import controlador.Coordinador;
+
+public class Logica {
+
+	private Coordinador coordinador;
+
+
+
+	public String sumar(String num1, String num2) {
+		int proceso = Integer.parseInt(num1)+Integer.parseInt(num2);
+		return ""+proceso;
+	}
+
+
+
+	public Coordinador getCoordinador() {
+		return coordinador;
+	}
+
+
+
+	public void setCoordinador(Coordinador coordinador) {
+		this.coordinador = coordinador;
+	}
+	
+	
+
+}

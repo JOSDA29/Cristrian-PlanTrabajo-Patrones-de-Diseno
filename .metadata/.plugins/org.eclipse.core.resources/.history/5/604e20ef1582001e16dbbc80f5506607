@@ -1,0 +1,28 @@
+package controlador;
+
+import modelo.Logica;
+import modelo.PersonaDao;
+import vista.VentanaPrincipal;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		VentanaPrincipal miVentanaPrincipal = new VentanaPrincipal();
+		Coordinador miCoordinador = new Coordinador();
+		Logica miLogica = new Logica();
+		PersonaDao miPersonaDao = new PersonaDao();
+		
+		miVentanaPrincipal.setCoordinador(miCoordinador);
+		miLogica.setCoordinador(miCoordinador);
+		miPersonaDao.setCoordinador(miCoordinador);
+
+		
+		miCoordinador.setVentanaPrincipal(miVentanaPrincipal);
+		miCoordinador.setLogica(miLogica);
+		miCoordinador.setPersonaDao(miPersonaDao);
+		
+		miVentanaPrincipal.frame.setVisible(true);
+		miPersonaDao.setCoordinador(miCoordinador);
+	}
+
+}
